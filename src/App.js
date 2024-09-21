@@ -1,22 +1,20 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Carrito from './pages/carrito';
-import Home from './pages/home';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Carrito from './pages/Carrito';
+import Home from './pages/Home';
+import Header from './components/header';
 
 function App() {
   return (
-    <div>
-      <Router>
-        <nav>
-          <Link to="/">Home</Link> | <Link to="/carrito">carrito</Link>
-        </nav>
-
-        <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/carrito" element={<Carrito/>} />
-        </Routes>
-      </Router>
-    </div>
+    <Router>
+      <div>
+        <Header/>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/carrito" element={<Carrito/>} />
+          </Routes>
+      </div>
+    </Router>
   );
 }
 
