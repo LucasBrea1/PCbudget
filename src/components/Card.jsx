@@ -1,7 +1,15 @@
 import React from 'react';
 import { Card, CardContent, CardMedia, Typography, Button, CardActions } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../redux/CartSlice';
 
-const ComponentCard = ({ name, description, price, image }) => {
+const ComponentCard = ({ id, name, description, price, image }) => {
+    const dispatch = useDispatch();
+
+    const handleAddToCart = () => {
+        dispatch(addToCart({ id, name, price, image }));
+    };
+
     return (
         <Card sx={{ maxWidth: 345, margin: 2 }}>
             <CardMedia
@@ -22,7 +30,7 @@ const ComponentCard = ({ name, description, price, image }) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small" variant="contained" color="primary">
+                <Button size="small" variant="contained" color="primary" onClick={handleAddToCart}>
                     Añadir al carrito
                 </Button>
             </CardActions>
