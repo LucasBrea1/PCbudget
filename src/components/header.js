@@ -51,8 +51,6 @@ function Header() {
         <MenuItem onClick={handleClose}>Placeholders</MenuItem>
         <MenuItem onClick={handleClose}>no funcionales</MenuItem>
         <MenuItem onClick={handleClose}>puede que cambie<br/>esto por un Drawer</MenuItem>
-        <MenuItem onClick={handleClose}>puede que no</MenuItem>
-        <MenuItem onClick={handleClose}>tambien puede que<br/>haga que esto sea<br/>un componente<br/>separado porque me<br/>parece mucho para<br/>poner en el componente<br/>header</MenuItem>
         <MenuItem onClick={handleClose}><WbIncandescentIcon/>Light/dark</MenuItem>
       </Menu>
       </Grid>
