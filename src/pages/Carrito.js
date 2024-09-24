@@ -1,12 +1,28 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, removeFromCart, clearCart } from '../redux/CartSlice';
+import jsPDF from 'jspdf';
 
 
 function Carrito() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
   const totalAmount = useSelector((state) => state.cart.totalAmount);
+
+  const handleExportPDF = () => {
+    const doc = new jsPDF();
+    doc.text('Shopping Cart', 10, 10);
+
+    let y = 20;
+    cartItems.forEach(item => {
+      doc.text(`${item.name} - $${item.price} x ${item.quantity}`, 10, y);
+      y += 10;
+    });
+
+    doc.text(`Total: $${totalAmount}`, 10, y + 10);
+
+    doc.save('cart.pdf');
+  };
 
   const handleAddToCart = (item) => {
     dispatch(addToCart(item));
@@ -39,6 +55,7 @@ function Carrito() {
     <div>
       <p>Total: ${totalAmount}</p>
       <button onClick={handleClearCart}>Clear Cart</button>
+      <button onClick={handleExportPDF}>Export as PDF</button>
     </div>
   </div>
   );
