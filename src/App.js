@@ -7,6 +7,8 @@ import Header from './components/header';
 import { Provider } from 'react-redux';
 import { store, persistor } from './redux/Store';
 import { PersistGate } from 'redux-persist/integration/react';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/carrito" element={<Carrito />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         </Router>
       </PersistGate>

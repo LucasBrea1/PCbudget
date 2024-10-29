@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid2';
 import Menu from '@mui/material/Menu';
@@ -9,15 +10,25 @@ import HomeIcon from '@mui/icons-material/Home';
 import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 import WbIncandescentIcon from '@mui/icons-material/WbIncandescent';
+import { logoutUser } from '../redux/AuthSlice';
 
 function Header() {
+  const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const { user, isAuthenticated } = useSelector(state => state.auth);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    handleClose();
   };
 
 
@@ -48,11 +59,25 @@ function Header() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Placeholders</MenuItem>
-        <MenuItem onClick={handleClose}>no funcionales</MenuItem>
-        <MenuItem onClick={handleClose}>puede que cambie<br/>esto por un Drawer</MenuItem>
+        
+        {isAuthenticated ? (
+          <MenuItem onClick={() => { handleClose(); handleLogout(); }}>Cerrar sesión</MenuItem>
+        ) : (
+          <Link to="/login">
+            <MenuItem onClick={handleClose}>Login</MenuItem>
+          </Link>
+        )}
+
+        <Link to="/register">
+          <MenuItem onClick={handleClose}>Register</MenuItem>
+        </Link>
         <MenuItem onClick={handleClose}><WbIncandescentIcon/>Light/dark</MenuItem>
       </Menu>
+      {isAuthenticated && (
+            <div style={{ marginLeft: '1em', fontSize: '1.5em' }}>
+              {`Hola, ${user.name}`}
+            </div>
+          )}
       </Grid>
 
 
@@ -81,7 +106,6 @@ function Header() {
 
         </nav>   
       </Grid>
-      
     </Grid>
     </Box>
   )
