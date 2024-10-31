@@ -1,5 +1,5 @@
 alojado en render.com
-https://pcbudget.onrender.com
+https://pcbudget.onrender.com (si no funciona probarlo localmente)
 
 
 como iniciar pcbudget localmente:
