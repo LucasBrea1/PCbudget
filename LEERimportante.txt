@@ -1,0 +1,19 @@
+alojado en render.com
+https://pcbudget.onrender.com
+
+
+como iniciar pcbudget localmente:
+
+1) descargar el proyecto
+
+2) abrir dos instancias de visual studio code. una en la carpeta frontend y otra en backend
+
+3) en cada uno, hacer npm install
+
+4) una vez termine la instalacion, ir a la instancia en la que esta abierto el backend, abrir un nuevo
+terminal y escribir el comando "node ." (deberia aparecer "conectado a la base de datos")
+
+5) ir a la instancia en la que esta abierto el frontend, abrir un nuevo terminal y escribir el comando
+"npm start"
+
+6) listo.

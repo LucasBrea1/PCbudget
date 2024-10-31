@@ -20,7 +20,6 @@ const Home = () => {
 
   return (
     <Container>
-      {/* Contenedor de búsqueda */}
       <Box sx={{ 
         position: 'sticky', 
         top: 0, 
@@ -31,7 +30,6 @@ const Home = () => {
         <Search components={Components} onSearch={handleSearch} />
       </Box>
       
-      {/* Contenedor de componentes */}
       <Grid container spacing={2} justifyContent="center">
         {searchResults.map((component, index) => (
           <Grid item key={component.id} xs={12} sm={6} md={4} lg={3}>

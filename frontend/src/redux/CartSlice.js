@@ -1,5 +1,3 @@
-// CartSlice.js maneja las acciones y el estado del carrito
-
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {

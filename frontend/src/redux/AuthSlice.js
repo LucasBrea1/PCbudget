@@ -15,8 +15,8 @@ const initialState = {
     'auth/register',
     async (userData, { rejectWithValue }) => {
       try {
-        const response = await axios.post('http://localhost:3001/register', userData); // API de registro
-        return response.data; // Datos del usuario y token
+        const response = await axios.post('http://localhost:3001/register', userData);
+        return response.data;
       } catch (error) {
         console.log(error.response.data)
         return rejectWithValue(error.response.data);
@@ -29,8 +29,8 @@ const initialState = {
     'auth/login',
     async (credentials, { rejectWithValue }) => {
       try {
-        const response = await axios.post('http://localhost:3001/login', credentials); // API de login
-        return response.data; // Datos del usuario y token
+        const response = await axios.post('http://localhost:3001/login', credentials);
+        return response.data;
       } catch (error) {
         return rejectWithValue(error.response.data);
       }
@@ -54,12 +54,11 @@ const initialState = {
         state.error = null;
       },
       clearError(state) {
-        state.error = null; // Limpia el error
+        state.error = null;
       }
     },
     extraReducers: (builder) => {
       builder
-        // Registro
         .addCase(registerUser.pending, (state) => {
           state.loading = true;
           state.error = null;
@@ -74,7 +73,6 @@ const initialState = {
           state.loading = false;
           state.error = action.payload || 'Error al registrar';
         })
-        // Inicio de sesión
         .addCase(loginUser.pending, (state) => {
           state.loading = true;
           state.error = null;
@@ -89,7 +87,6 @@ const initialState = {
           state.loading = false;
           state.error = action.payload || 'Error al iniciar sesión';
         })
-        // Cierre de sesión
         .addCase(logoutUser.fulfilled, (state) => {
           state.user = null;
           state.token = null;

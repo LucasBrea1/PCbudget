@@ -6,7 +6,7 @@ dotenv.config();
 const client = new Client({
     connectionString: 'postgresql://pcbudgetdb_user:B44oPIB6skouDcvdQQgbR91NQxppgMnV@dpg-cselb5m8ii6s73967ku0-a.oregon-postgres.render.com/pcbudgetdb',
     ssl: {
-      rejectUnauthorized: false,  // Esta configuración permite el uso de SSL
+      rejectUnauthorized: false,
   },
   });
 

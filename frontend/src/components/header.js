@@ -9,7 +9,6 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import HomeIcon from '@mui/icons-material/Home';
 import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
-import WbIncandescentIcon from '@mui/icons-material/WbIncandescent';
 import { logoutUser } from '../redux/AuthSlice';
 
 function Header() {
@@ -42,7 +41,6 @@ function Header() {
           flexDirection: { xs: 'column', md: 'row' },
         }}
       >
-        {/* Menú de usuario */}
         <Grid
           item
           xs={12}
@@ -89,7 +87,7 @@ function Header() {
           )}
         </Grid>
         
-        {/* Título PCBUDGET */}
+        
         <Grid
           item
           xs={12}
@@ -104,7 +102,7 @@ function Header() {
           PCBUDGET
         </Grid>
 
-        {/* Iconos de Home y Carrito */}
+        
         <Grid
           item
           xs={12}
