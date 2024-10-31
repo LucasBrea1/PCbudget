@@ -37,7 +37,7 @@ function Header() {
     <Box>
     <Grid container sx={{ borderBottom: '1px solid rgb(232, 234, 238)' }}>
 
-      <Grid xs={4} sx={{display:'flex', alignItems:'center', justifyContent:'left'}}>
+      <Grid size={4} sx={{display:'flex', alignItems:'center', justifyContent:'left'}}>
         <Button
         id="basic-menu" 
         aria-controls={open ? 'basic-menu' : undefined}
@@ -70,7 +70,7 @@ function Header() {
       </Grid>
 
 
-      <Grid xs={4} sx={{
+      <Grid size={4} sx={{
         fontSize: '5em',
         textAlign:'center'
         }} className='title'>
@@ -78,7 +78,7 @@ function Header() {
         </Grid>
       
 
-      <Grid xs={4} sx={{ display:'flex', alignItems:'center', justifyContent:'right'}}>
+      <Grid size={4} sx={{ display:'flex', alignItems:'center', justifyContent:'right'}}>
         <nav>
 
           <Link to="/">
