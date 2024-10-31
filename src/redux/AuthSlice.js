@@ -53,6 +53,9 @@ const initialState = {
         state.isAuthenticated = false;
         state.error = null;
       },
+      clearError(state) {
+        state.error = null; // Limpia el error
+      }
     },
     extraReducers: (builder) => {
       builder
@@ -95,5 +98,5 @@ const initialState = {
     },
   });
   
-  export const { logout } = authSlice.actions;
+  export const { logout, clearError } = authSlice.actions;
   export default authSlice.reducer;

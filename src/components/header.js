@@ -37,7 +37,7 @@ function Header() {
     <Box>
     <Grid container sx={{ borderBottom: '1px solid rgb(232, 234, 238)' }}>
 
-      <Grid size={4} sx={{display:'flex', alignItems:'center', justifyContent:'left'}}>
+      <Grid xs={4} sx={{display:'flex', alignItems:'center', justifyContent:'left'}}>
         <Button
         id="basic-menu" 
         aria-controls={open ? 'basic-menu' : undefined}
@@ -62,26 +62,15 @@ function Header() {
         
         {isAuthenticated ? (
           <MenuItem onClick={() => { handleClose(); handleLogout(); }}>Cerrar sesión</MenuItem>
-        ) : (
-          <Link to="/login">
-            <MenuItem onClick={handleClose}>Login</MenuItem>
-          </Link>
+        ) : ( 
+          <MenuItem component={Link} to="/login" onClick={handleClose}>Iniciar sesión</MenuItem> 
         )}
-
-        <Link to="/register">
-          <MenuItem onClick={handleClose}>Register</MenuItem>
-        </Link>
-        <MenuItem onClick={handleClose}><WbIncandescentIcon/>Light/dark</MenuItem>
+          <MenuItem component={Link} to="/register" onClick={handleClose}>Registrarse</MenuItem>
       </Menu>
-      {isAuthenticated && (
-            <div style={{ marginLeft: '1em', fontSize: '1.5em' }}>
-              {`Hola, ${user.name}`}
-            </div>
-          )}
       </Grid>
 
 
-      <Grid size={4} sx={{
+      <Grid xs={4} sx={{
         fontSize: '5em',
         textAlign:'center'
         }} className='title'>
@@ -89,7 +78,7 @@ function Header() {
         </Grid>
       
 
-      <Grid size={4} sx={{ display:'flex', alignItems:'center', justifyContent:'right'}}>
+      <Grid xs={4} sx={{ display:'flex', alignItems:'center', justifyContent:'right'}}>
         <nav>
 
           <Link to="/">
@@ -103,8 +92,12 @@ function Header() {
               <ShoppingCartIcon sx={{ fontSize:'3em', color:'black'}}/>
             </Button>
           </Link>
-
-        </nav>   
+        </nav>
+        {isAuthenticated && (
+            <div style={{ marginLeft: '1em', fontSize: '1.5em' }}>
+              {`Hola, ${user.name}`}
+            </div>
+          )}
       </Grid>
     </Grid>
     </Box>
