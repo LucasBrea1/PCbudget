@@ -84,8 +84,11 @@ function Header() {
               Registrarse
             </MenuItem>
           </Menu>
+          {isAuthenticated && (
+            <div style={{ marginLeft: '1em', fontSize: '1.5em' }}>{`Hola, ${user.name}`}</div>
+          )}
         </Grid>
-
+        
         {/* Título PCBUDGET */}
         <Grid
           item
@@ -124,10 +127,6 @@ function Header() {
               <ShoppingCartIcon sx={{ fontSize: { xs: '2em', md: '3em' }, color: 'black' }} />
             </Button>
           </Link>
-
-          {isAuthenticated && (
-            <div style={{ marginLeft: '1em', fontSize: '1.5em' }}>{`Hola, ${user.name}`}</div>
-          )}
         </Grid>
       </Grid>
     </Box>
